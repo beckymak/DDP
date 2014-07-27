@@ -1,0 +1,59 @@
+---
+title       : Iris Classification
+subtitle    : Developing Data Product
+author      : Becky Mak
+job         : DDP
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Motivation
+
+One of the hottest data science problem is __classification__.
+
+To predict the species of Iris flower, a classification tree model is developed.
+
+And users can input their observation, the apps will return the species.
+
+--- .class #id 
+
+## Data Summary
+Here is the summary of data used to train the model
+```{r}
+data(iris)
+d2=iris
+species=levels(d2$Species)
+summary(d2)
+```
+
+--- 
+
+## Classification tree
+We use the classification tree to build the model from package `rpart`.
+
+```{r}
+library(rpart)
+fit = rpart(Species~., method="class", data=d2)
+plot(fit, uniform=TRUE, main="Classification Tree for Iris")
+text(fit, use.n=TRUE, all=TRUE, cex=.4)
+```
+
+--- 
+
+## Example
+When the user input the value (1,5,2,3), the outcome of the following will shown:
+
+```{r}
+input = data.frame(1,5,2,3)
+names(input)= c("Sepal.Length","Sepal.Width","Petal.Length","Petal.Width")
+
+pred = predict(fit, input)
+predName = species[which.max(pred)]
+```
+
+The outcome will be `r predName`.
+ 
