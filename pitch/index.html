@@ -96,13 +96,12 @@ summary(d2)
   <article data-timings="">
     <p>We use the classification tree to build the model from package <code>rpart</code>.</p>
 
-<pre><code class="r">library(rpart)
-fit = rpart(Species~., method=&quot;class&quot;, data=d2)
+<pre><code class="r">library(rpart); fit = rpart(Species~., method=&quot;class&quot;, data=d2)
 plot(fit, uniform=TRUE, main=&quot;Classification Tree for Iris&quot;)
-text(fit, use.n=TRUE, all=TRUE, cex=.4)
+text(fit, use.n=TRUE, all=TRUE, cex=.7)
 </code></pre>
 
-<p><img src="figure/unnamed-chunk-2.png" alt="plot of chunk unnamed-chunk-2"> </p>
+<p><img src="assets/fig/unnamed-chunk-2.png" alt="plot of chunk unnamed-chunk-2"> </p>
 
   </article>
   <!-- Presenter Notes -->

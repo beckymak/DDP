@@ -3,7 +3,7 @@ title       : Iris Classification
 subtitle    : Developing Data Product
 author      : Becky Mak
 job         : DDP
-framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+framework   : io2012       # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
 hitheme     : tomorrow      # 
 widgets     : []            # {mathjax, quiz, bootstrap}
@@ -55,13 +55,12 @@ We use the classification tree to build the model from package `rpart`.
 
 
 ```r
-library(rpart)
-fit = rpart(Species~., method="class", data=d2)
+library(rpart); fit = rpart(Species~., method="class", data=d2)
 plot(fit, uniform=TRUE, main="Classification Tree for Iris")
-text(fit, use.n=TRUE, all=TRUE, cex=.4)
+text(fit, use.n=TRUE, all=TRUE, cex=.7)
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2.png) 
+![plot of chunk unnamed-chunk-2](assets/fig/unnamed-chunk-2.png) 
 
 --- 
 
